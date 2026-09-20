@@ -682,15 +682,15 @@ We will update you once the migration is completed.`
                 badgeColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
                 vars: {
                     rowId: '1234 ',
-                    migrationType: 'Full cPanel Migration',
+                    migrationType: 'Website and Email',
                     domains: ['example.com', 'example.net'],
                     sourceDisk: '',
                     destDisk: '',
-                    sourceServer: 'srv105.hosting.com',
-                    destServer: 'srv210.hosting.com',
-                    dnsStatus: 'DNS updated',
-                    emailVerified: 'Yes',
-                    backupDeleted: 'Yes'
+                    sourceServer: 'source server',
+                    destServer: 'destination server',
+                    dnsStatus: 'DNS updated/not updated/Pending',
+                    emailaccountsVerified: 'Yes/No',
+                    backupDeleted: 'Yes/No/Pending'
                 },
                 getTemplate: (v) => `Pre-migration notes/pulse:
 

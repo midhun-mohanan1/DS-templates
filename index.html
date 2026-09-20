@@ -42,7 +42,7 @@
                         <span class="text-xs text-slate-500 dark:text-slate-400">Interactive Ticket Replies</span>
                     </div>
                 </div>
-                <button id="closeSidebar" class="lg:hidden text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+                <button type="button" id="closeSidebar" class="lg:hidden text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
@@ -69,17 +69,20 @@
                             <span><i class="fa-solid fa-shield-halved mr-1.5"></i> DNS Managed by Us</span>
                         </div>
                         <div class="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 space-y-1 mt-1">
-                            <button onclick="switchTab('dns-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-web">
+                            <button type="button" onclick="switchTab('dns-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-web">
                                 <span>Email & Website</span>
                             </button>
-                            <button onclick="switchTab('dns-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-exchange">
+                            <button type="button" onclick="switchTab('dns-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-exchange">
                                 <span>Email Exchange</span>
                             </button>
-                            <button onclick="switchTab('dns-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-only">
+                            <button type="button" onclick="switchTab('dns-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-only">
                                 <span>Email Only (cPanel)</span>
                             </button>
-                            <button onclick="switchTab('dns-managed-titan')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-titan">
+                            <button type="button" onclick="switchTab('dns-managed-titan')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-titan">
                                 <span>Titan Email</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-web-only">
+                                <span>Website Only (cPanel)</span>
                             </button>
                         </div>
                     </div>
@@ -90,19 +93,19 @@
                             <span><i class="fa-solid fa-globe mr-1.5"></i> DNS Not Managed by Us</span>
                         </div>
                         <div class="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 space-y-1 mt-1">
-                            <button onclick="switchTab('dns-not-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-web">
+                            <button type="button" onclick="switchTab('dns-not-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-web">
                                 <span>Email & Website</span>
                             </button>
-                            <button onclick="switchTab('dns-not-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-exchange">
+                            <button type="button" onclick="switchTab('dns-not-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-exchange">
                                 <span>Email Exchange</span>
                             </button>
-                            <button onclick="switchTab('dns-not-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-only">
+                            <button type="button" onclick="switchTab('dns-not-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-only">
                                 <span>Email Only (cPanel)</span>
                             </button>
-                            <button onclick="switchTab('dns-not-managed-titan')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-titan">
+                            <button type="button" onclick="switchTab('dns-not-managed-titan')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-titan">
                                 <span>Titan Email</span>
                             </button>
-                            <button onclick="switchTab('dns-not-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-web-only">
+                            <button type="button" onclick="switchTab('dns-not-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-web-only">
                                 <span>Website Only (cPanel)</span>
                             </button>
                         </div>
@@ -115,7 +118,7 @@
                         Post-Migration & Notes
                     </div>
                     <div class="space-y-1">
-                        <button onclick="switchTab('pulse-notes')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="pulse-notes">
+                        <button type="button" onclick="switchTab('pulse-notes')" class="nav-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-colors hover:bg-slate-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="pulse-notes">
                             <span class="flex items-center"><i class="fa-solid fa-clipboard-list mr-2 text-emerald-500"></i> Pulse Notes Template</span>
                         </button>
                     </div>
@@ -125,7 +128,7 @@
             <!-- Sidebar Footer / Theme Toggle -->
             <div class="p-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Appearance</span>
-                <button id="themeToggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors flex items-center space-x-2 text-xs">
+                <button type="button" id="themeToggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors flex items-center space-x-2 text-xs">
                     <i class="fa-solid fa-moon dark:hidden"></i>
                     <i class="fa-solid fa-sun hidden dark:block"></i>
                     <span class="dark:hidden">Dark Mode</span>
@@ -139,7 +142,7 @@
             <!-- Top Header Navbar -->
             <header class="h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 flex items-center justify-between z-10">
                 <div class="flex items-center space-x-3">
-                    <button id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+                    <button type="button" id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                     <div>
@@ -193,35 +196,36 @@
                 .replace(/>/g, "&gt;");
         }
 
-        // Domains joined one-per-line, for templates that list them as a block
         function formatDomainLines(domains) {
             const list = (domains || []).map(d => d.trim()).filter(Boolean);
             return list.length ? list.join('\n') : '[domain]';
         }
 
-        // Domains joined inline with commas, for single-line contexts (e.g. Pulse Notes)
         function formatDomainInline(domains) {
             const list = (domains || []).map(d => d.trim()).filter(Boolean);
             return list.length ? list.join(', ') : '[domain]';
         }
 
-        // The first entered domain, used where a single reference domain is needed
         function primaryDomain(domains) {
             const list = (domains || []).map(d => d.trim()).filter(Boolean);
             return list.length ? list[0] : '[domain]';
         }
 
-        // Optional "They are:" breakdown appended after an email account count line
         function formatEmailList(names) {
             const list = (names || []).map(n => n.trim()).filter(Boolean);
             if (!list.length) return '';
             return `\n\nThey are:\n${list.join('\n')}`;
         }
 
-        // Template Database with raw template strings and default variable values
+        function formatUrlList(urls) {
+            const list = (urls || []).map(u => u.trim()).filter(Boolean);
+            return list.length ? list.join('\n') : '[DNS Checker URL]';
+        }
+
+        // Template Database including Website Only (DNS Managed by Us) and multi-URL formatting
         const templates = {
             'dns-managed-email-web': {
-                title: 'Email and Website Pre migration Reply - DNS managed by us',
+                title: 'Email and Website Pre-Migration Reply - DNS Managed by Us',
                 category: 'Pre-Migration / DNS Managed by Us',
                 badgeColor: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
                 vars: {
@@ -230,7 +234,7 @@
                     destinationPlan: 'cPanel Business Pro',
                     emailCount: '5',
                     emailAccountNames: [],
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email and website migration request for the following domain(s):
 
@@ -247,7 +251,8 @@ Websites: 1 website(s) currently hosted on the source plan
 DNS management: DNS records for this domain are currently managed by us
 Nameservers (NS): NS records are also managed by us
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
 
@@ -267,7 +272,7 @@ We will share the updated DNS/server settings with you once the migration has be
 Thank you for your patience.`
             },
             'dns-managed-exchange': {
-                title: 'Email Exchange Pre migration Reply - DNS managed by us',
+                title: 'Email Exchange Pre-Migration Reply - DNS Managed by Us',
                 category: 'Pre-Migration / DNS Managed by Us',
                 badgeColor: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
                 vars: {
@@ -276,7 +281,7 @@ Thank you for your patience.`
                     destinationPlan: 'Exchange Online',
                     emailCount: '10',
                     emailAccountNames: [],
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
 
@@ -293,7 +298,8 @@ Websites: 1 website(s) currently hosted on the source plan
 DNS management: DNS records for this domain are currently managed by us
 Nameservers (NS): NS records are also managed by us
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
 
@@ -309,7 +315,7 @@ DNS propagation typically takes 4–6 hours to complete worldwide.
 Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
             },
             'dns-managed-email-only': {
-                title: 'Email only Pre migration Reply for cPanel to cPanel - DNS managed by us',
+                title: 'Email Only Pre-Migration Reply for cPanel to cPanel - DNS Managed by Us',
                 category: 'Pre-Migration / DNS Managed by Us',
                 badgeColor: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
                 vars: {
@@ -318,13 +324,13 @@ Once propagation is complete, you will need to reconfigure your email accounts o
                     destinationPlan: 'cPanel Pro',
                     emailCount: '3',
                     emailAccountNames: [],
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
 
 ${formatDomainLines(v.domains)}
 
-This covers Email migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
+This covers email migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
 
 Pre-Migration Check Summary
 
@@ -335,7 +341,8 @@ Websites: 1 website(s) currently hosted on the source plan
 DNS management: DNS records for this domain are currently managed by us
 Nameservers (NS): NS records are also managed by us
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and DNS configuration prior to migration, for your reference.
 
@@ -355,7 +362,7 @@ We will update you once the migration is completed.
 Thank you for your patience.`
             },
             'dns-managed-titan': {
-                title: 'Titan Email Pre migration Reply - DNS managed by us',
+                title: 'Titan Email Pre-Migration Reply - DNS Managed by Us',
                 category: 'Pre-Migration / DNS Managed by Us',
                 badgeColor: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
                 vars: {
@@ -364,7 +371,7 @@ Thank you for your patience.`
                     destinationPlan: 'Titan Business Mail',
                     emailCount: '4',
                     emailAccountNames: [],
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
 
@@ -381,7 +388,8 @@ Websites: 1 website(s) currently hosted on the source plan
 DNS management: DNS records for this domain are currently managed by us
 Nameservers (NS): NS records are also managed by us
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
 
@@ -396,8 +404,52 @@ Please note:
 DNS propagation typically takes 4–6 hours to complete worldwide.
 Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
             },
+            'dns-managed-web-only': {
+                title: 'Website Only Pre-Migration Reply for cPanel to cPanel - DNS Managed by Us',
+                category: 'Pre-Migration / DNS Managed by Us',
+                badgeColor: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
+                vars: {
+                    domains: ['example.com'],
+                    sourcePlan: 'cPanel Shared',
+                    destinationPlan: 'cPanel Dedicated',
+                    emailCount: '0',
+                    emailAccountNames: [],
+                    dnsUrls: ['https://dnschecker.org']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your website migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers website migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Websites: 1 website(s) currently hosted on the source plan
+Email accounts: ${v.emailCount} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+DNS management: DNS records for this domain are currently managed by us
+Nameservers (NS): NS records are also managed by us
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current website and DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since the NS records are managed by us, once the website migration is complete, the DNS records — including A records and other website-related records — will need to be updated to ensure website continue working correctly.
+
+As we manage your DNS, we will update these records on your behalf once migration is complete.
+
+Please note:
+
+DNS propagation typically takes 4–6 hours to complete worldwide.
+
+We will update you once the migration is completed.`
+            },
             'dns-not-managed-email-web': {
-                title: 'Email and website Pre migration Reply for cPanel to cPanel - DNS not managed by US',
+                title: 'Email and Website Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
                 category: 'Pre-Migration / DNS Not Managed by Us',
                 badgeColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
                 vars: {
@@ -407,7 +459,7 @@ Once propagation is complete, you will need to reconfigure your email accounts o
                     emailCount: '6',
                     emailAccountNames: [],
                     remoteDns: 'Cloudflare',
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email and website migration request for the following domain(s):
 
@@ -424,7 +476,8 @@ Websites: 1 website(s) currently hosted on the source plan
 
 Nameservers (NS): NS records are managed by ${v.remoteDns}
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
 
@@ -444,7 +497,7 @@ We will share the updated DNS/server settings with you once the migration has be
 Thank you for your patience.`
             },
             'dns-not-managed-exchange': {
-                title: 'Email Exchange Pre migration Reply - DNS not managed by us',
+                title: 'Email Exchange Pre-Migration Reply - DNS Not Managed by Us',
                 category: 'Pre-Migration / DNS Not Managed by Us',
                 badgeColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
                 vars: {
@@ -454,7 +507,7 @@ Thank you for your patience.`
                     emailCount: '12',
                     emailAccountNames: [],
                     remoteDns: 'GoDaddy DNS',
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
 
@@ -471,7 +524,8 @@ Websites: 1 website(s) currently hosted on the source plan
 
 Nameservers (NS): NS records are managed by ${v.remoteDns}
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
 
@@ -487,7 +541,7 @@ Once the DNS records have been updated, propagation typically takes 4–6 hours 
 Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
             },
             'dns-not-managed-email-only': {
-                title: 'Email only Pre migration Reply for cPanel to cPanel - DNS not managed by US',
+                title: 'Email Only Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
                 category: 'Pre-Migration / DNS Not Managed by Us',
                 badgeColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
                 vars: {
@@ -497,13 +551,13 @@ Once propagation is complete, you will need to reconfigure your email accounts o
                     emailCount: '4',
                     emailAccountNames: [],
                     remoteDns: 'Namecheap DNS',
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
 
 ${formatDomainLines(v.domains)}
 
-This covers Email migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
+This covers email migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
 
 Pre-Migration Check Summary
 
@@ -514,7 +568,8 @@ Websites: 1 website(s) currently hosted on the source plan
 
 Nameservers (NS): NS records are managed by ${v.remoteDns}
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and DNS configuration prior to migration, for your reference.
 
@@ -534,7 +589,7 @@ We will update you once the migration is completed.
 Thank you for your patience.`
             },
             'dns-not-managed-titan': {
-                title: 'Titan Email Pre migration Reply - DNS not managed by us',
+                title: 'Titan Email Pre-Migration Reply - DNS Not Managed by Us',
                 category: 'Pre-Migration / DNS Not Managed by Us',
                 badgeColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
                 vars: {
@@ -544,7 +599,7 @@ Thank you for your patience.`
                     emailCount: '5',
                     emailAccountNames: [],
                     remoteDns: 'Route53',
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
                 getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
 
@@ -561,7 +616,8 @@ Websites: 1 website(s) currently hosted on the source plan
 
 Nameservers (NS): NS records are managed by ${v.remoteDns}
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
 
@@ -577,7 +633,7 @@ Once the DNS records have been updated, propagation typically takes 4–6 hours 
 Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
             },
             'dns-not-managed-web-only': {
-                title: 'Website only Premigration reply for cPanel to cPanel - DNS not managed by US',
+                title: 'Website Only Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
                 category: 'Pre-Migration / DNS Not Managed by Us',
                 badgeColor: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
                 vars: {
@@ -587,13 +643,13 @@ Once propagation is complete, you will need to reconfigure your email accounts o
                     emailCount: '2',
                     emailAccountNames: [],
                     remoteDns: 'Cloudflare',
-                    dnsUrl: 'https://dnschecker.org'
+                    dnsUrls: ['https://dnschecker.org']
                 },
-                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your Website migration request for the following domain(s):
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your website migration request for the following domain(s):
 
 ${formatDomainLines(v.domains)}
 
-This covers Website migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
+This covers website migration from the ${v.sourcePlan} to the ${v.destinationPlan}.
 
 Pre-Migration Check Summary
 
@@ -603,7 +659,8 @@ Websites: 1 website(s) currently hosted on the source plan
 Email accounts: ${v.emailCount} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
 Nameservers (NS): NS records are managed by ${v.remoteDns}
 
-You can check the current DNS record status here: ${v.dnsUrl}
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
 
 We have also attached screenshots of the current website and DNS configuration prior to migration, for your reference.
 
@@ -620,7 +677,7 @@ Once the DNS records have been updated, propagation typically takes 4–6 hours 
 We will update you once the migration is completed.`
             },
             'pulse-notes': {
-                title: 'Pre and Post Migration Pulse Note Template',
+                title: 'Pre and Post-Migration Pulse Notes Template',
                 category: 'Internal Documentation & Tracking',
                 badgeColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
                 vars: {
@@ -667,16 +724,15 @@ Source archived and old backup deleted: ${v.backupDeleted}`
             }
         };
 
-        // Snapshot the original defaults for every template so Reset has something real to restore.
         const templateDefaults = {};
         for (const key of Object.keys(templates)) {
             templateDefaults[key] = JSON.parse(JSON.stringify(templates[key].vars));
         }
 
-        // Friendlier singular labels for the "+ Add ..." buttons on array fields
         const ARRAY_ADD_LABELS = {
             domains: 'Add another domain',
-            emailAccountNames: 'Add email account'
+            emailAccountNames: 'Add email account',
+            dnsUrls: 'Add another URL'
         };
 
         let activeKey = 'dns-managed-email-web';
@@ -684,7 +740,6 @@ Source archived and old backup deleted: ${v.backupDeleted}`
         function switchTab(key) {
             activeKey = key;
 
-            // Update active states on sidebar buttons
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 if(btn.getAttribute('data-target') === key) {
                     btn.classList.add('bg-indigo-50', 'dark:bg-slate-700', 'text-indigo-600', 'dark:text-indigo-400', 'font-semibold');
@@ -697,7 +752,6 @@ Source archived and old backup deleted: ${v.backupDeleted}`
 
             renderTemplateView(key);
 
-            // Close sidebar on mobile after choosing
             if(window.innerWidth < 1024) {
                 document.getElementById('sidebar').classList.add('-translate-x-full');
             }
@@ -729,7 +783,6 @@ Source archived and old backup deleted: ${v.backupDeleted}`
             `;
         }
 
-        // Fields that hold pasted multi-line terminal output rather than a single value
         const MULTILINE_FIELDS = new Set(['sourceDisk', 'destDisk']);
 
         function renderTemplateView(key) {
@@ -739,7 +792,6 @@ Source archived and old backup deleted: ${v.backupDeleted}`
             document.getElementById('currentCategoryTitle').textContent = tmpl.title;
             const container = document.getElementById('templateContainer');
 
-            // Generate form inputs based on keys in tmpl.vars
             let formFieldsHtml = '';
             for (const [varKey, varVal] of Object.entries(tmpl.vars)) {
                 let labelName = varKey.replace(/([A-Z])/g, ' $1').toUpperCase();
@@ -780,7 +832,7 @@ Source archived and old backup deleted: ${v.backupDeleted}`
                                 <i class="fa-solid fa-sliders text-indigo-600 dark:text-indigo-400 mr-2"></i>
                                 Customize Ticket Details
                             </h3>
-                            <button onclick="resetDefaults('${key}')" class="text-xs text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 underline">Reset</button>
+                            <button type="button" onclick="resetDefaults('${key}')" class="text-xs text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 underline">Reset</button>
                         </div>
                         <div class="space-y-3">
                             ${formFieldsHtml}
@@ -795,7 +847,7 @@ Source archived and old backup deleted: ${v.backupDeleted}`
                                 <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold ${tmpl.badgeColor} mb-1">${tmpl.category}</span>
                                 <h3 class="text-sm font-bold text-slate-800 dark:text-white truncate max-w-xs sm:max-w-md">${tmpl.title}</h3>
                             </div>
-                            <button onclick="copyActiveTemplate('${key}')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-indigo-500/20 transition-all flex items-center space-x-2 flex-shrink-0">
+                            <button type="button" onclick="copyActiveTemplate('${key}')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-indigo-500/20 transition-all flex items-center space-x-2 flex-shrink-0">
                                 <i class="fa-regular fa-copy"></i>
                                 <span>Copy Customized</span>
                             </button>
@@ -814,8 +866,8 @@ Source archived and old backup deleted: ${v.backupDeleted}`
 
                         <!-- Card Footer -->
                         <div class="px-5 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-                            <span>Ready for paste into support desk</span>
-                            <button onclick="copyActiveTemplate('${key}')" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
+                            <span>Ready to paste into support desk</span>
+                            <button type="button" onclick="copyActiveTemplate('${key}')" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">
                                 <i class="fa-regular fa-copy mr-1"></i> Copy to Clipboard
                             </button>
                         </div>
@@ -825,8 +877,6 @@ Source archived and old backup deleted: ${v.backupDeleted}`
             `;
         }
 
-        // Every input writes straight into templates[key].vars, then this repaints just the preview text
-        // (never the form) so focus and cursor position are never lost while typing.
         function refreshPreview(key) {
             const tmpl = templates[key];
             if(!tmpl) return;

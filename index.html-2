@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migration Support Hub & Customizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans"', 'sans-serif'],
+                        mono: ['"IBM Plex Mono"', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .transition-theme {
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="h-full font-sans bg-emerald-50/50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-theme">
+
+    <div id="app" class="flex h-screen overflow-hidden">
+
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-emerald-200 dark:border-slate-700 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full shadow-lg lg:shadow-none">
+            <!-- Sidebar Header -->
+            <div class="p-5 border-b border-emerald-200 dark:border-slate-700 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 bg-emerald-600 dark:bg-blue-600 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-headset text-sm"></i>
+                    </div>
+                </div>
+                <button type="button" id="closeSidebar" class="lg:hidden text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-medium">
+                <!-- Section 1: Pre-Migration -->
+                <div>
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-3 mb-2">
+                        Pre-Migration Replies
+                    </div>
+
+                    <!-- Subgroup: DNS Managed by Us -->
+                    <div class="mb-3">
+                        <div class="px-3 py-1.5 text-emerald-700 dark:text-blue-400 flex items-center justify-between">
+                            <span><i class="fa-solid fa-shield-halved mr-1.5"></i> DNS Managed by Us</span>
+                        </div>
+                        <div class="ml-2 pl-2 border-l border-emerald-200 dark:border-slate-700 space-y-1 mt-1">
+                            <button type="button" onclick="switchTab('dns-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-web">
+                                <span>Email & Website</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-exchange">
+                                <span>Email Exchange</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-only">
+                                <span>Email Only (cPanel)</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-managed-titan')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-titan">
+                                <span>Titan Email</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-web-only">
+                                <span>Website Only (cPanel)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Subgroup: DNS Not Managed by Us -->
+                    <div>
+                        <div class="px-3 py-1.5 text-amber-600 dark:text-amber-400 flex items-center justify-between">
+                            <span><i class="fa-solid fa-globe mr-1.5"></i> DNS Not Managed by Us</span>
+                        </div>
+                        <div class="ml-2 pl-2 border-l border-emerald-200 dark:border-slate-700 space-y-1 mt-1">
+                            <button type="button" onclick="switchTab('dns-not-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-web">
+                                <span>Email & Website</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-not-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-exchange">
+                                <span>Email Exchange</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-not-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-only">
+                                <span>Email Only (cPanel)</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-not-managed-titan')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-titan">
+                                <span>Titan Email</span>
+                            </button>
+                            <button type="button" onclick="switchTab('dns-not-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-web-only">
+                                <span>Website Only (cPanel)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Pulse Notes -->
+                <div>
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-3 mb-2">
+                        Telemetry Pulse Notes
+                    </div>
+                    <div class="space-y-1">
+                        <button type="button" onclick="switchTab('pre-migration-pulse')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="pre-migration-pulse">
+                            <span class="flex items-center"><i class="fa-solid fa-file-arrow-up mr-2 text-emerald-600 dark:text-blue-400"></i> Pre-Migration Pulse</span>
+                        </button>
+                        <button type="button" onclick="switchTab('post-migration-pulse')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="post-migration-pulse">
+                            <span class="flex items-center"><i class="fa-solid fa-file-circle-check mr-2 text-emerald-600 dark:text-blue-400"></i> Post-Migration Pulse</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section 3: Diagnostic Tools -->
+                <div>
+                    <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-3 mb-2">
+                        Diagnostic Tools
+                    </div>
+                    <div class="space-y-1">
+                        <button type="button" onclick="switchTab('dns-lookup-tool')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-lookup-tool">
+                            <span class="flex items-center"><i class="fa-solid fa-network-wired mr-2 text-emerald-600 dark:text-blue-400"></i> Multi-DNS Checker</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Sidebar Footer / Theme Toggle -->
+            <div class="p-4 border-t border-emerald-200 dark:border-slate-700 flex items-center justify-between">
+                <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Theme</span>
+                <button type="button" id="themeToggle" class="px-3 py-1.5 bg-emerald-100 dark:bg-slate-700 text-emerald-800 dark:text-blue-300 hover:bg-emerald-200 dark:hover:bg-slate-600 transition-colors flex items-center space-x-2 text-xs font-medium">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block"></i>
+                    <span class="dark:hidden">Dark Theme</span>
+                    <span class="hidden dark:inline">Green Theme</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <div class="flex-1 flex flex-col min-w-0 lg:pl-72">
+            <!-- Top Header Navbar -->
+            <header class="h-16 bg-white dark:bg-slate-800 border-b border-emerald-200 dark:border-slate-700 px-6 flex items-center justify-between z-10">
+                <div class="flex items-center space-x-3">
+                    <button type="button" id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <div>
+                        <h2 id="currentCategoryTitle" class="text-xs font-bold text-slate-800 dark:text-white tracking-wider uppercase">Email & Website — DNS Managed by Us</h2>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Template Workspace -->
+            <main class="flex-1 overflow-y-auto p-6 lg:p-8">
+                <div class="max-w-6xl mx-auto space-y-6">
+
+                    <!-- Notification Banner for Copy Action -->
+                    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-3 shadow-xl flex items-center space-x-3 text-xs font-medium">
+                        <i class="fa-solid fa-circle-check text-emerald-400 dark:text-blue-600 text-sm"></i>
+                        <span id="toastMessage">Customized template copied to clipboard successfully!</span>
+                    </div>
+
+                    <!-- CONTAINER FOR TEMPLATES & CUSTOMIZER -->
+                    <div id="templateContainer" class="space-y-6">
+                        <!-- Rendered via JavaScript -->
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // ---------- Helpers ----------
+        function escapeAttr(str) {
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/"/g, "&quot;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        function formatDomainLines(domains) {
+            const list = (domains || []).map(d => d.trim()).filter(Boolean);
+            return list.length ? list.join('\n') : '[domain]';
+        }
+
+        function formatDomainInline(domains) {
+            const list = (domains || []).map(d => d.trim()).filter(Boolean);
+            return list.length ? list.join(', ') : '[domain]';
+        }
+
+        function primaryDomain(domains) {
+            const list = (domains || []).map(d => d.trim()).filter(Boolean);
+            return list.length ? list[0] : '[domain]';
+        }
+
+        function formatEmailList(names) {
+            const list = (names || []).map(n => n.trim()).filter(Boolean);
+            if (!list.length) return '';
+            return `\n\nThey are:\n${list.join('\n')}`;
+        }
+
+        function formatUrlList(urls) {
+            const list = (urls || []).map(u => u.trim()).filter(Boolean);
+            return list.length ? list.join('\n') : '[DNS Checker URL]';
+        }
+
+        // Live API Multi-Domain & Multi-Record Query Handler (Bulk Textarea Input)
+        let liveDnsResultCache = {};
+        async function runBulkDomainDnsLookup(domainsText) {
+            if (!domainsText) {
+                alert('Please enter at least one domain in the text box.');
+                return;
+            }
+            
+            const domainList = domainsText.split('\n').map(d => d.trim()).filter(Boolean);
+            if (domainList.length === 0) {
+                alert('No valid domain names found.');
+                return;
+            }
+            
+            const recordTypes = ['A', 'MX', 'NS'];
+            const box = document.getElementById('livePreviewBox');
+            
+            if(box) box.textContent = `Querying live DNS records (A, MX, NS, mail.domain) across ${domainList.length} domain(s) via Cloudflare DoH API...`;
+            
+            let fullReport = `Multi-Domain Global DNS Diagnostic Report\n---------------------------------------------------------------\nTimestamp: ${new Date().toUTCString()}\n---------------------------------------------------------------\n\n`;
+
+            for (const domain of domainList) {
+                fullReport += `[+] DOMAIN: ${domain}\n`;
+                
+                // Query standard records (A, MX, NS)
+                for (const rType of recordTypes) {
+                    try {
+                        const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=${rType}`, {
+                            headers: { 'Accept': 'application/dns-json' }
+                        });
+                        const json = await res.json();
+                        if (json.Answer && json.Answer.length > 0) {
+                            json.Answer.forEach(ans => {
+                                fullReport += `   - ${rType.padEnd(8, ' ')} -> ${ans.data} (TTL: ${ans.TTL}s)\n`;
+                            });
+                        } else {
+                            fullReport += `   - ${rType.padEnd(8, ' ')} -> No records found\n`;
+                        }
+                    } catch (e) {
+                        fullReport += `   - ${rType.padEnd(8, ' ')} -> Query Error\n`;
+                    }
+                }
+
+                // Query specific mail.domain record explicitly
+                try {
+                    const mailHost = `mail.${domain}`;
+                    const mailRes = await fetch(`https://cloudflare-dns.com/dns-query?name=${mailHost}&type=A`, {
+                        headers: { 'Accept': 'application/dns-json' }
+                    });
+                    const mailJson = await mailRes.json();
+                    if (mailJson.Answer && mailJson.Answer.length > 0) {
+                        mailJson.Answer.forEach(ans => {
+                            fullReport += `   - ${mailHost.padEnd(10, ' ')} -> ${ans.data} (TTL: ${ans.TTL}s)\n`;
+                        });
+                    } else {
+                        fullReport += `   - ${mailHost.padEnd(10, ' ')} -> No A record found\n`;
+                    }
+                } catch (e) {
+                    fullReport += `   - mail.${domain} -> Query Error\n`;
+                }
+
+                fullReport += `---------------------------------------------------------------\n`;
+            }
+
+            liveDnsResultCache['dns-lookup-tool'] = fullReport;
+            if(box) box.textContent = fullReport;
+        }
+
+        // Template Database
+        const templates = {
+            'dns-managed-email-web': {
+                title: 'Email and Website Pre-Migration Reply - DNS Managed by Us',
+                category: 'Pre-Migration / Internal DNS',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email and website migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+DNS management: DNS records for this domain are currently managed by us
+Nameservers (NS): NS records are also managed by us
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since the NS records are managed by us, once the migration is complete, the DNS records — including email and website-related records — will need to be updated to ensure both services continue working correctly.
+
+As we manage your DNS, we will update these records on your behalf once migration is complete.
+
+Please note:
+
+DNS propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.
+
+We will share the updated DNS/server settings with you once the migration has been completed.
+
+Thank you for your patience.`
+            },
+            'dns-managed-exchange': {
+                title: 'Email Exchange Pre-Migration Reply - DNS Managed by Us',
+                category: 'Pre-Migration / Internal DNS',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+DNS management: DNS records for this domain are currently managed by us
+Nameservers (NS): NS records are also managed by us
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.
+
+As we manage your DNS, we will update these records on your behalf once migration is complete.
+
+Please note:
+
+DNS propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
+            },
+            'dns-managed-email-only': {
+                title: 'Email Only Pre-Migration Reply for cPanel to cPanel - DNS Managed by Us',
+                category: 'Pre-Migration / Internal DNS',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers email migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+DNS management: DNS records for this domain are currently managed by us
+Nameservers (NS): NS records are also managed by us
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.
+
+As we manage your DNS, we will update these records on your behalf once migration is complete.
+
+Please note:
+
+DNS propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.
+
+We will update you once the migration is completed.
+
+Thank you for your patience.`
+            },
+            'dns-managed-titan': {
+                title: 'Titan Email Pre-Migration Reply - DNS Managed by Us',
+                category: 'Pre-Migration / Internal DNS',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+DNS management: DNS records for this domain are currently managed by us
+Nameservers (NS): NS records are also managed by us
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.
+
+As we manage your DNS, we will update these records on your behalf once migration is complete.
+
+Please note:
+
+DNS propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
+            },
+            'dns-managed-web-only': {
+                title: 'Website Only Pre-Migration Reply for cPanel to cPanel - DNS Managed by Us',
+                category: 'Pre-Migration / Internal DNS',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your website migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers website migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Websites: 1 website(s) currently hosted on the source plan
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+DNS management: DNS records for this domain are currently managed by us
+Nameservers (NS): NS records are also managed by us
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current website and DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since the NS records are managed by us, once the website migration is complete, the DNS records — including A records and other website-related records — will need to be updated to ensure website continue working correctly.
+
+As we manage your DNS, we will update these records on your behalf once migration is complete.
+
+Please note:
+
+DNS propagation typically takes 4–6 hours to complete worldwide.
+
+We will update you once the migration is completed.`
+            },
+            'dns-not-managed-email-web': {
+                title: 'Email and Website Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
+                category: 'Pre-Migration / External DNS',
+                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    remoteDns: '',
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email and website migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+
+Nameservers (NS): NS records are managed by ${v.remoteDns || '[DNS provider]'}
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since your NS records are managed by ${v.remoteDns || '[DNS provider]'}, once the migration is complete, the DNS records — including email and website-related records — will need to be updated on your end to ensure both services continue working correctly.
+
+As your DNS is managed externally, we will not have access to make these changes ourselves. We will share the updated DNS/server settings with you once migration is complete, so you (or your DNS provider) can update the records accordingly.
+
+Please note:
+
+Once the DNS records have been updated, propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.
+
+We will share the updated DNS/server settings with you once the migration has been completed.
+
+Thank you for your patience.`
+            },
+            'dns-not-managed-exchange': {
+                title: 'Email Exchange Pre-Migration Reply - DNS Not Managed by Us',
+                category: 'Pre-Migration / External DNS',
+                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    remoteDns: '',
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+
+Nameservers (NS): NS records are managed by ${v.remoteDns || '[DNS provider]'}
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since your NS records are managed by ${v.remoteDns || '[DNS provider]'}, once the migration is complete, the MX and other email-related records will need to be updated on your end to ensure email services continue working correctly.
+
+As your DNS is managed externally, we will not have access to make these changes ourselves. We will share the required DNS/server settings with you once migration is complete, so you (or your DNS provider) can update the records accordingly.
+
+Please note:
+
+Once the DNS records have been updated, propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
+            },
+            'dns-not-managed-email-only': {
+                title: 'Email Only Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
+                category: 'Pre-Migration / External DNS',
+                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    remoteDns: '',
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers email migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+
+Nameservers (NS): NS records are managed by ${v.remoteDns || '[DNS provider]'}
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since your NS records are managed by ${v.remoteDns || '[DNS provider]'}, once the migration is complete, the MX and other email-related records will need to be updated on your end to ensure email services continue working correctly.
+
+As your DNS is managed externally, we will not have access to make these changes ourselves. We will share the required DNS/server settings with you once migration is complete, so you (or your DNS provider) can update the records accordingly.
+
+Please note:
+
+Once the DNS records have been updated, propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.
+
+We will update you once the migration is completed.
+
+Thank you for your patience.`
+            },
+            'dns-not-managed-titan': {
+                title: 'Titan Email Pre-Migration Reply - DNS Not Managed by Us',
+                category: 'Pre-Migration / External DNS',
+                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    remoteDns: '',
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Websites: 1 website(s) currently hosted on the source plan
+
+Nameservers (NS): NS records are managed by ${v.remoteDns || '[DNS provider]'}
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since your NS records are managed by ${v.remoteDns || '[DNS provider]'}, once the migration is complete, the MX and other email-related records will need to be updated on your end to ensure email services continue working correctly.
+
+As your DNS is managed externally, we will not have access to make these changes ourselves. We will share the required DNS/server settings with you once migration is complete, so you (or your DNS provider) can update the records accordingly.
+
+Please note:
+
+Once the DNS records have been updated, propagation typically takes 4–6 hours to complete worldwide.
+Once propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
+            },
+            'dns-not-managed-web-only': {
+                title: 'Website Only Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
+                category: 'Pre-Migration / External DNS',
+                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                vars: {
+                    domains: [''],
+                    sourcePlan: '',
+                    destinationPlan: '',
+                    emailCount: '',
+                    emailAccountNames: [],
+                    remoteDns: '',
+                    dnsUrls: ['']
+                },
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your website migration request for the following domain(s):
+
+${formatDomainLines(v.domains)}
+
+This covers website migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.
+
+Pre-Migration Check Summary
+
+We have completed the pre-migration checks and found the following:
+
+Websites: 1 website(s) currently hosted on the source plan
+Email accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}
+Nameservers (NS): NS records are managed by ${v.remoteDns || '[DNS provider]'}
+
+You can check the current DNS record status here:
+${formatUrlList(v.dnsUrls)}
+
+We have also attached screenshots of the current website and DNS configuration prior to migration, for your reference.
+
+What Happens After Migration
+
+Since your NS records are managed by ${v.remoteDns || '[DNS provider]'}, once the website migration is complete, the A record and other website-related records will need to be updated on your end to ensure the website continues working correctly.
+
+As your DNS is managed externally, we will not have access to make these changes ourselves. We will share the required DNS/server settings with you once migration is complete, so you (or your DNS provider) can update the records accordingly.
+
+Please note:
+
+Once the DNS records have been updated, propagation typically takes 4–6 hours to complete worldwide.
+
+We will update you once the migration is completed.`
+            },
+            'pre-migration-pulse': {
+                title: 'Pre-Migration Pulse Notes Template',
+                category: 'Telemetry / Internal Logs',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    rowId: '',
+                    migrationType: '',
+                    domains: [''],
+                    sourceDisk: '',
+                    sourceServer: '',
+                    destServer: ''
+                },
+                getTemplate: (v) => `Pre-migration notes/pulse:
+
+Row ID: ${v.rowId || '[row id]'}
+
+What is being migrated: ${v.migrationType || '[migration type]'}
+
+Domains: ${formatDomainInline(v.domains)}
+
+Disk usage on Source:
+
+${v.sourceDisk || '[paste du -sch output here]'}
+
+Source: ${v.sourceServer || '[source server]'}
+
+Destination: ${v.destServer || '[destination server]'}`
+            },
+            'post-migration-pulse': {
+                title: 'Post-Migration Pulse Notes Template',
+                category: 'Telemetry / Internal Logs',
+                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                vars: {
+                    destDisk: '',
+                    dnsStatus: '',
+                    emailVerified: '',
+                    backupDeleted: ''
+                },
+                getTemplate: (v) => `Post migration notes/pulse:
+
+Disk usage on Destination:
+
+${v.destDisk || '[paste du -sch output here]'}
+
+DNS Status: ${v.dnsStatus || '[status]'}
+
+Verified count of email accounts & emails listed in webmail: ${v.emailVerified || '[yes/no]'}
+
+Source archived and old backup deleted: ${v.backupDeleted || '[yes/no]'}`
+            },
+            'dns-lookup-tool': {
+                title: 'Multi-Domain & Multi-Record DNS Inspector',
+                category: 'Diagnostic Tools',
+                badgeColor: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-900',
+                vars: {
+                    bulkDomainsText: ''
+                },
+                getTemplate: (v) => {
+                    if (liveDnsResultCache['dns-lookup-tool']) {
+                        return liveDnsResultCache['dns-lookup-tool'];
+                    }
+                    return `Multi-Domain DNS Inspector\n---------------------------------------------------------------\nEnter domains in the text box on the left (one per line) and click "Run Multi-Record Query" to fetch A, MX, NS, and mail.domain records simultaneously.`;
+                }
+            }
+        };
+
+        const templateDefaults = {};
+        for (const key of Object.keys(templates)) {
+            templateDefaults[key] = JSON.parse(JSON.stringify(templates[key].vars));
+        }
+
+        const ARRAY_ADD_LABELS = {
+            domains: 'Add another domain',
+            emailAccountNames: 'Add email account',
+            dnsUrls: 'Add another URL'
+        };
+
+        const FIELD_PLACEHOLDERS = {
+            domains: 'e.g., example.com',
+            sourcePlan: 'e.g., cPanel Shared',
+            destinationPlan: 'e.g., cPanel Dedicated',
+            emailCount: 'e.g., 5',
+            emailAccountNames: 'e.g., user@example.com',
+            dnsUrls: 'e.g., https://dnschecker.org',
+            remoteDns: 'e.g., Cloudflare / GoDaddy',
+            rowId: 'e.g., #94821',
+            migrationType: 'e.g., Website & Email',
+            sourceServer: 'e.g., srv12.host.com',
+            destServer: 'e.g., srv45.host.com',
+            dnsStatus: 'e.g., Updated / Pending',
+            emailVerified: 'e.g., Yes (5/5 accounts)',
+            backupDeleted: 'e.g., Pending deletion'
+        };
+
+        let activeKey = 'dns-managed-email-web';
+
+        function switchTab(key) {
+            activeKey = key;
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.getAttribute('data-target') === key) {
+                    btn.classList.add('bg-emerald-100', 'dark:bg-slate-700', 'text-emerald-800', 'dark:text-blue-300', 'font-semibold');
+                    btn.classList.remove('hover:bg-emerald-50', 'dark:hover:bg-slate-700/50');
+                } else {
+                    btn.classList.remove('bg-emerald-100', 'dark:bg-slate-700', 'text-emerald-800', 'dark:text-blue-300', 'font-semibold');
+                    btn.classList.add('hover:bg-emerald-50', 'dark:hover:bg-slate-700/50');
+                }
+            });
+
+            renderTemplateView(key);
+
+            if(window.innerWidth < 1024) {
+                document.getElementById('sidebar').classList.add('-translate-x-full');
+            }
+        }
+
+        function renderArrayField(tKey, varKey, values, labelName) {
+            const items = values.length ? values : [];
+            const ph = FIELD_PLACEHOLDERS[varKey] || 'Enter value...';
+            const itemsHtml = items.map((val, idx) => `
+                <div class="flex items-center space-x-2 mb-2">
+                    <input type="text" value="${escapeAttr(val)}" placeholder="${ph}" oninput="setArrayVar('${tKey}','${varKey}', ${idx}, this.value)"
+                        class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-600 dark:focus:border-blue-500 focus:outline-none transition-theme">
+                    <button type="button" onclick="removeArrayItem('${tKey}','${varKey}', ${idx})" class="text-slate-400 hover:text-red-500 px-2 py-2 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900" title="Remove">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            const emptyHtml = items.length ? '' : '<p class="text-xs text-slate-400 italic mb-2">None added yet</p>';
+            const addLabel = ARRAY_ADD_LABELS[varKey] || `Add ${labelName.toLowerCase()}`;
+
+            return `
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">${labelName}</label>
+                    <div>${itemsHtml}${emptyHtml}</div>
+                    <button type="button" onclick="addArrayItem('${tKey}','${varKey}')" class="text-xs text-emerald-700 dark:text-blue-400 font-semibold hover:underline mt-1 flex items-center">
+                        <i class="fa-solid fa-plus mr-1"></i> ${addLabel}
+                    </button>
+                </div>
+            `;
+        }
+
+        const MULTILINE_FIELDS = new Set(['sourceDisk', 'destDisk', 'bulkDomainsText']);
+
+        function renderTemplateView(key) {
+            const tmpl = templates[key];
+            if(!tmpl) return;
+
+            document.getElementById('currentCategoryTitle').textContent = tmpl.title;
+            const container = document.getElementById('templateContainer');
+
+            let formFieldsHtml = '';
+            for (const [varKey, varVal] of Object.entries(tmpl.vars)) {
+                let labelName = varKey === 'bulkDomainsText' ? 'DOMAINS LIST (ONE PER LINE)' : varKey.replace(/([A-Z])/g, ' $1').toUpperCase();
+                let ph = FIELD_PLACEHOLDERS[varKey] || 'Enter details...';
+
+                if (Array.isArray(varVal)) {
+                    formFieldsHtml += renderArrayField(key, varKey, varVal, labelName);
+                } else if (MULTILINE_FIELDS.has(varKey)) {
+                    let textPlaceholder = varKey === 'bulkDomainsText' ? 'example.com\nexample.net\nmy-domain.org' : '[root@server ~]# du -sch *\n12M\tbackup\n1.8G\tdomains';
+                    formFieldsHtml += `
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">${labelName}</label>
+                            <textarea rows="8" oninput="setScalarVar('${key}','${varKey}', this.value)"
+                                placeholder="${textPlaceholder}"
+                                class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 text-xs font-mono text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-600 dark:focus:border-blue-500 focus:outline-none transition-theme">${escapeHtml(varVal)}</textarea>
+                            ${varKey === 'bulkDomainsText' ? '<p class="text-[11px] text-slate-400 mt-1">Type or paste domain names, one per line.</p>' : '<p class="text-[11px] text-slate-400 mt-1">Paste full du -sch command output here.</p>'}
+                        </div>
+                    `;
+                } else {
+                    formFieldsHtml += `
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">${labelName}</label>
+                            <input type="text" value="${escapeAttr(varVal)}" placeholder="${ph}" oninput="setScalarVar('${key}','${varKey}', this.value)"
+                                class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-600 dark:focus:border-blue-500 focus:outline-none transition-theme">
+                        </div>
+                    `;
+                }
+            }
+
+            // Special Action Button for Multi-Domain DNS Tool
+            let extraActionHtml = '';
+            if (key === 'dns-lookup-tool') {
+                extraActionHtml = `
+                    <button type="button" onclick="runBulkDomainDnsLookup(templates['dns-lookup-tool'].vars.bulkDomainsText)" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-md transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                        <span>Run Multi-Record Query</span>
+                    </button>
+                `;
+            }
+
+            const currentText = tmpl.getTemplate(tmpl.vars);
+
+            container.innerHTML = `
+                <!-- Customizer Grid Container -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+                    <!-- Left Column: Form Controls (Customizer) -->
+                    <div class="lg:col-span-4 bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 p-5 shadow-sm space-y-4 transition-theme">
+                        <div class="flex items-center justify-between pb-3 border-b border-emerald-100 dark:border-slate-700/50">
+                            <h3 class="font-bold text-xs flex items-center text-slate-800 dark:text-white uppercase tracking-wider">
+                                <i class="fa-solid fa-sliders text-emerald-600 dark:text-blue-400 mr-2"></i>
+                                Configure Details
+                            </h3>
+                            <button type="button" onclick="resetDefaults('${key}')" class="text-xs text-slate-400 hover:text-emerald-700 dark:hover:text-blue-400 underline">Clear All</button>
+                        </div>
+                        <div class="space-y-4 max-h-[600px] overflow-y-auto pr-1">
+                            ${formFieldsHtml}
+                        </div>
+                        ${extraActionHtml}
+                    </div>
+
+                    <!-- Right Column: Live Output & Copy -->
+                    <div class="lg:col-span-8 bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col transition-theme">
+                        <!-- Card Header -->
+                        <div class="p-5 border-b border-emerald-200 dark:border-slate-700 flex items-center justify-between bg-emerald-50/40 dark:bg-slate-800/50">
+                            <div>
+                                <span class="inline-block px-2.5 py-1 text-xs font-semibold ${tmpl.badgeColor} mb-1">${tmpl.category}</span>
+                                <h3 class="text-xs font-bold text-slate-800 dark:text-white truncate max-w-sm sm:max-w-md">${tmpl.title}</h3>
+                            </div>
+                            <button type="button" onclick="copyActiveTemplate('${key}')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white text-xs font-semibold shadow-md shadow-emerald-500/20 dark:shadow-blue-500/20 transition-all flex items-center space-x-2 flex-shrink-0">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>Copy Customized</span>
+                            </button>
+                        </div>
+
+                        <!-- Live Preview Box -->
+                        <div class="p-6 flex-1">
+                            <div id="livePreviewBox" class="bg-slate-50 dark:bg-slate-900 p-5 border border-slate-300 dark:border-slate-700 font-mono text-xs leading-relaxed whitespace-pre-wrap select-all overflow-x-auto text-slate-700 dark:text-slate-300 min-h-[500px] max-h-[680px]">${escapeHtml(currentText)}</div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-emerald-200 dark:border-slate-700 flex items-center justify-end text-xs text-slate-500 dark:text-slate-400">
+                            <button type="button" onclick="copyActiveTemplate('${key}')" class="text-emerald-700 dark:text-blue-400 font-semibold hover:underline">
+                                <i class="fa-regular fa-copy mr-1"></i> Copy to Clipboard
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+        }
+
+        function refreshPreview(key) {
+            const tmpl = templates[key];
+            if(!tmpl) return;
+            const box = document.getElementById('livePreviewBox');
+            if(box) {
+                if (key === 'dns-lookup-tool' && liveDnsResultCache['dns-lookup-tool']) {
+                    box.textContent = liveDnsResultCache['dns-lookup-tool'];
+                } else {
+                    box.textContent = tmpl.getTemplate(tmpl.vars);
+                }
+            }
+        }
+
+        function setScalarVar(key, varKey, value) {
+            templates[key].vars[varKey] = value;
+            refreshPreview(key);
+        }
+
+        function setArrayVar(key, varKey, index, value) {
+            templates[key].vars[varKey][index] = value;
+            refreshPreview(key);
+        }
+
+        function addArrayItem(key, varKey) {
+            templates[key].vars[varKey].push('');
+            renderTemplateView(key);
+        }
+
+        function removeArrayItem(key, varKey, index) {
+            templates[key].vars[varKey].splice(index, 1);
+            renderTemplateView(key);
+        }
+
+        function resetDefaults(key) {
+            templates[key].vars = JSON.parse(JSON.stringify(templateDefaults[key]));
+            if(key === 'dns-lookup-tool') liveDnsResultCache['dns-lookup-tool'] = null;
+            renderTemplateView(key);
+        }
+
+        function copyActiveTemplate(key) {
+            const tmpl = templates[key];
+            if(!tmpl) return;
+
+            const finalString = (key === 'dns-lookup-tool' && liveDnsResultCache['dns-lookup-tool']) ? liveDnsResultCache['dns-lookup-tool'] : tmpl.getTemplate(tmpl.vars);
+
+            if(navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(finalString).then(() => {
+                    showToast();
+                }).catch(() => {
+                    fallbackCopy(finalString);
+                });
+            } else {
+                fallbackCopy(finalString);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Theme Switcher Initialization
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.theme === 'dark') {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Mobile Sidebar Controls
+        const sidebar = document.getElementById('sidebar');
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+
+        openSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+        });
+
+        closeSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+        });
+
+        // Initial Load
+        window.onload = () => {
+            switchTab('dns-managed-email-web');
+        };
+    </script>
+</body>
+</html>

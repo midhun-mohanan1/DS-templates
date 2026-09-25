@@ -39,16 +39,16 @@
         }
     </style>
 </head>
-<body class="h-full font-sans bg-emerald-50/50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-theme">
+<body class="h-full font-sans bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-theme">
 
     <div id="app" class="flex h-screen overflow-hidden">
 
         <!-- Sidebar Navigation -->
-        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-emerald-200 dark:border-slate-700 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full shadow-lg lg:shadow-none">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full shadow-lg lg:shadow-none">
             <!-- Sidebar Header -->
-            <div class="p-5 border-b border-emerald-200 dark:border-slate-700 flex items-center justify-between">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 bg-emerald-600 dark:bg-blue-600 flex items-center justify-center text-white shadow-md">
+                    <div class="w-9 h-9 bg-blue-600 flex items-center justify-center text-white shadow-md">
                         <i class="fa-solid fa-headset text-sm"></i>
                     </div>
                 </div>
@@ -67,23 +67,23 @@
 
                     <!-- Subgroup: DNS Managed by Us -->
                     <div class="mb-3">
-                        <div class="px-3 py-1.5 text-emerald-700 dark:text-blue-400 flex items-center justify-between">
+                        <div class="px-3 py-1.5 text-blue-600 dark:text-blue-400 flex items-center justify-between">
                             <span><i class="fa-solid fa-shield-halved mr-1.5"></i> DNS Managed by Us</span>
                         </div>
-                        <div class="ml-2 pl-2 border-l border-emerald-200 dark:border-slate-700 space-y-1 mt-1">
-                            <button type="button" onclick="switchTab('dns-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-web">
+                        <div class="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 space-y-1 mt-1">
+                            <button type="button" onclick="switchTab('dns-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-web">
                                 <span>Email & Website</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-exchange">
+                            <button type="button" onclick="switchTab('dns-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-exchange">
                                 <span>Email Exchange</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-only">
+                            <button type="button" onclick="switchTab('dns-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-email-only">
                                 <span>Email Only (cPanel)</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-managed-titan')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-titan">
+                            <button type="button" onclick="switchTab('dns-managed-titan')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-titan">
                                 <span>Titan Email</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-web-only">
+                            <button type="button" onclick="switchTab('dns-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-managed-web-only">
                                 <span>Website Only (cPanel)</span>
                             </button>
                         </div>
@@ -94,20 +94,20 @@
                         <div class="px-3 py-1.5 text-amber-600 dark:text-amber-400 flex items-center justify-between">
                             <span><i class="fa-solid fa-globe mr-1.5"></i> DNS Not Managed by Us</span>
                         </div>
-                        <div class="ml-2 pl-2 border-l border-emerald-200 dark:border-slate-700 space-y-1 mt-1">
-                            <button type="button" onclick="switchTab('dns-not-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-web">
+                        <div class="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 space-y-1 mt-1">
+                            <button type="button" onclick="switchTab('dns-not-managed-email-web')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-web">
                                 <span>Email & Website</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-not-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-exchange">
+                            <button type="button" onclick="switchTab('dns-not-managed-exchange')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-exchange">
                                 <span>Email Exchange</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-not-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-only">
+                            <button type="button" onclick="switchTab('dns-not-managed-email-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-email-only">
                                 <span>Email Only (cPanel)</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-not-managed-titan')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-titan">
+                            <button type="button" onclick="switchTab('dns-not-managed-titan')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-titan">
                                 <span>Titan Email</span>
                             </button>
-                            <button type="button" onclick="switchTab('dns-not-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-web-only">
+                            <button type="button" onclick="switchTab('dns-not-managed-web-only')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-not-managed-web-only">
                                 <span>Website Only (cPanel)</span>
                             </button>
                         </div>
@@ -120,11 +120,11 @@
                         Telemetry Pulse Notes
                     </div>
                     <div class="space-y-1">
-                        <button type="button" onclick="switchTab('pre-migration-pulse')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="pre-migration-pulse">
-                            <span class="flex items-center"><i class="fa-solid fa-file-arrow-up mr-2 text-emerald-600 dark:text-blue-400"></i> Pre-Migration Pulse</span>
+                        <button type="button" onclick="switchTab('pre-migration-pulse')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="pre-migration-pulse">
+                            <span class="flex items-center"><i class="fa-solid fa-file-arrow-up mr-2 text-blue-600"></i> Pre-Migration Pulse</span>
                         </button>
-                        <button type="button" onclick="switchTab('post-migration-pulse')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="post-migration-pulse">
-                            <span class="flex items-center"><i class="fa-solid fa-file-circle-check mr-2 text-emerald-600 dark:text-blue-400"></i> Post-Migration Pulse</span>
+                        <button type="button" onclick="switchTab('post-migration-pulse')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="post-migration-pulse">
+                            <span class="flex items-center"><i class="fa-solid fa-file-circle-check mr-2 text-blue-600"></i> Post-Migration Pulse</span>
                         </button>
                     </div>
                 </div>
@@ -135,21 +135,21 @@
                         Diagnostic Tools
                     </div>
                     <div class="space-y-1">
-                        <button type="button" onclick="switchTab('dns-lookup-tool')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-emerald-100 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-lookup-tool">
-                            <span class="flex items-center"><i class="fa-solid fa-network-wired mr-2 text-emerald-600 dark:text-blue-400"></i> Multi-DNS Checker</span>
+                        <button type="button" onclick="switchTab('dns-lookup-tool')" class="nav-btn w-full text-left px-3 py-2 transition-colors hover:bg-blue-50 dark:hover:bg-slate-700/50 flex items-center justify-between" data-target="dns-lookup-tool">
+                            <span class="flex items-center"><i class="fa-solid fa-network-wired mr-2 text-blue-600"></i> Multi-DNS Checker</span>
                         </button>
                     </div>
                 </div>
             </nav>
 
             <!-- Sidebar Footer / Theme Toggle -->
-            <div class="p-4 border-t border-emerald-200 dark:border-slate-700 flex items-center justify-between">
+            <div class="p-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <span class="text-xs font-medium text-slate-500 dark:text-slate-400">Theme</span>
-                <button type="button" id="themeToggle" class="px-3 py-1.5 bg-emerald-100 dark:bg-slate-700 text-emerald-800 dark:text-blue-300 hover:bg-emerald-200 dark:hover:bg-slate-600 transition-colors flex items-center space-x-2 text-xs font-medium">
+                <button type="button" id="themeToggle" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors flex items-center space-x-2 text-xs font-medium">
                     <i class="fa-solid fa-moon dark:hidden"></i>
                     <i class="fa-solid fa-sun hidden dark:block"></i>
                     <span class="dark:hidden">Dark Theme</span>
-                    <span class="hidden dark:inline">Green Theme</span>
+                    <span class="hidden dark:inline">Light Theme</span>
                 </button>
             </div>
         </aside>
@@ -157,7 +157,7 @@
         <!-- Main Content Wrapper -->
         <div class="flex-1 flex flex-col min-w-0 lg:pl-72">
             <!-- Top Header Navbar -->
-            <header class="h-16 bg-white dark:bg-slate-800 border-b border-emerald-200 dark:border-slate-700 px-6 flex items-center justify-between z-10">
+            <header class="h-16 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 flex items-center justify-between z-10">
                 <div class="flex items-center space-x-3">
                     <button type="button" id="openSidebar" class="lg:hidden text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
                         <i class="fa-solid fa-bars text-xl"></i>
@@ -174,7 +174,7 @@
 
                     <!-- Notification Banner for Copy Action -->
                     <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-3 shadow-xl flex items-center space-x-3 text-xs font-medium">
-                        <i class="fa-solid fa-circle-check text-emerald-400 dark:text-blue-600 text-sm"></i>
+                        <i class="fa-solid fa-circle-check text-blue-400 dark:text-blue-600 text-sm"></i>
                         <span id="toastMessage">Customized template copied to clipboard successfully!</span>
                     </div>
 
@@ -231,9 +231,11 @@
             return list.length ? list.join('\n') : '[DNS Checker URL]';
         }
 
-        // Live API Multi-Domain & Multi-Record Query Handler (Bulk Textarea Input)
-        let liveDnsResultCache = {};
-        async function runBulkDomainDnsLookup(domainsText) {
+        // Live API Multi-Domain Tabular DNS Inspector Handler
+        let liveDnsTableResults = null;
+        let dnsProcessStatus = '';
+
+        async function runTabularDomainDnsLookup(domainsText) {
             if (!domainsText) {
                 alert('Please enter at least one domain in the text box.');
                 return;
@@ -245,58 +247,62 @@
                 return;
             }
             
-            const recordTypes = ['A', 'MX', 'NS'];
-            const box = document.getElementById('livePreviewBox');
-            
-            if(box) box.textContent = `Querying live DNS records (A, MX, NS, mail.domain) across ${domainList.length} domain(s) via Cloudflare DoH API...`;
-            
-            let fullReport = `Multi-Domain Global DNS Diagnostic Report\n---------------------------------------------------------------\nTimestamp: ${new Date().toUTCString()}\n---------------------------------------------------------------\n\n`;
+            dnsProcessStatus = `Querying live DNS records across ${domainList.length} domain(s)...`;
+            renderTemplateView('dns-lookup-tool');
+
+            let results = [];
 
             for (const domain of domainList) {
-                fullReport += `[+] DOMAIN: ${domain}\n`;
-                
-                // Query standard records (A, MX, NS)
-                for (const rType of recordTypes) {
-                    try {
-                        const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=${rType}`, {
-                            headers: { 'Accept': 'application/dns-json' }
-                        });
-                        const json = await res.json();
-                        if (json.Answer && json.Answer.length > 0) {
-                            json.Answer.forEach(ans => {
-                                fullReport += `   - ${rType.padEnd(8, ' ')} -> ${ans.data} (TTL: ${ans.TTL}s)\n`;
-                            });
-                        } else {
-                            fullReport += `   - ${rType.padEnd(8, ' ')} -> No records found\n`;
-                        }
-                    } catch (e) {
-                        fullReport += `   - ${rType.padEnd(8, ' ')} -> Query Error\n`;
-                    }
-                }
+                let aRecs = [];
+                let nsRecs = [];
+                let mxRecs = [];
+                let mxHostARecs = [];
 
-                // Query specific mail.domain record explicitly
+                // 1. Fetch A Record
                 try {
-                    const mailHost = `mail.${domain}`;
-                    const mailRes = await fetch(`https://cloudflare-dns.com/dns-query?name=${mailHost}&type=A`, {
-                        headers: { 'Accept': 'application/dns-json' }
-                    });
-                    const mailJson = await mailRes.json();
-                    if (mailJson.Answer && mailJson.Answer.length > 0) {
-                        mailJson.Answer.forEach(ans => {
-                            fullReport += `   - ${mailHost.padEnd(12, ' ')} -> ${ans.data} (TTL: ${ans.TTL}s)\n`;
-                        });
-                    } else {
-                        fullReport += `   - ${mailHost.padEnd(12, ' ')} -> No A record found\n`;
-                    }
-                } catch (e) {
-                    fullReport += `   - mail.${domain} -> Query Error\n`;
-                }
+                    const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, { headers: { 'Accept': 'application/dns-json' } });
+                    const json = await res.json();
+                    if (json.Answer) aRecs = json.Answer.map(ans => ans.data);
+                } catch(e) {}
 
-                fullReport += `---------------------------------------------------------------\n`;
+                // 2. Fetch NS Record
+                try {
+                    const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=NS`, { headers: { 'Accept': 'application/dns-json' } });
+                    const json = await res.json();
+                    if (json.Answer) nsRecs = json.Answer.map(ans => ans.data);
+                } catch(e) {}
+
+                // 3. Fetch MX Record
+                try {
+                    const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=MX`, { headers: { 'Accept': 'application/dns-json' } });
+                    const json = await res.json();
+                    if (json.Answer) {
+                        mxRecs = json.Answer.map(ans => ans.data);
+                        for (const mxTarget of json.Answer) {
+                            let targetHost = mxTarget.data.replace(/\.$/, '');
+                            try {
+                                const mxRes = await fetch(`https://cloudflare-dns.com/dns-query?name=${targetHost}&type=A`, { headers: { 'Accept': 'application/dns-json' } });
+                                const mxJson = await mxRes.json();
+                                if (mxJson.Answer) {
+                                    mxJson.Answer.forEach(a => mxHostARecs.push(`${targetHost} -> ${a.data}`));
+                                }
+                            } catch(e) {}
+                        }
+                    }
+                } catch(e) {}
+
+                results.push({
+                    domain,
+                    a: aRecs,
+                    ns: nsRecs,
+                    mx: mxRecs,
+                    mxHostA: mxHostARecs
+                });
             }
 
-            liveDnsResultCache['dns-lookup-tool'] = fullReport;
-            if(box) box.textContent = fullReport;
+            liveDnsTableResults = results;
+            dnsProcessStatus = `Completed! ${domainList.length} domain(s) processed.`;
+            renderTemplateView('dns-lookup-tool');
         }
 
         // Template Database
@@ -304,7 +310,7 @@
             'dns-managed-email-web': {
                 title: 'Email and Website Pre-Migration Reply - DNS Managed by Us',
                 category: 'Pre-Migration / Internal DNS',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -315,12 +321,12 @@
                     websiteStatus: '',
                     dnsUrls: ['']
                 },
-                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email and website migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) currently hosted on the source plan (Status: ${v.websiteStatus || '[status]'})\nDNS management: DNS records for this domain are currently managed by us\nNameservers (NS): NS records are also managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including email and website-related records — will need to be updated to ensure both services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.\n\nWe will share the updated DNS/server settings with you once the migration has been completed.\n\nThank you for your patience.`
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email and website migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) currently hosted on the source plan (Status: ${v.websiteStatus || '[status]'})\nNameservers (NS): NS records are managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including email and website-related records — will need to be updated to ensure both services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.\n\nWe will share the updated DNS/server settings with you once the migration has been completed.\n\nThank you for your patience.`
             },
             'dns-managed-exchange': {
                 title: 'Email Exchange Pre-Migration Reply - DNS Managed by Us',
                 category: 'Pre-Migration / Internal DNS',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -331,12 +337,12 @@
                     websiteStatus: '',
                     dnsUrls: ['']
                 },
-                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nDNS management: DNS records for this domain are currently managed by us\nNameservers (NS): NS records are also managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nNameservers (NS): NS records are managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
             },
             'dns-managed-email-only': {
                 title: 'Email Only Pre-Migration Reply for cPanel to cPanel - DNS Managed by Us',
                 category: 'Pre-Migration / Internal DNS',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -347,12 +353,12 @@
                     websiteStatus: '',
                     dnsUrls: ['']
                 },
-                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers email migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nDNS management: DNS records for this domain are currently managed by us\nNameservers (NS): NS records are also managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.\n\nWe will update you once the migration is completed.\n\nThank you for your patience.`
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers email migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nNameservers (NS): NS records are managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.\n\nWe will update you once the migration is completed.\n\nThank you for your patience.`
             },
             'dns-managed-titan': {
                 title: 'Titan Email Pre-Migration Reply - DNS Managed by Us',
                 category: 'Pre-Migration / Internal DNS',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -363,12 +369,12 @@
                     websiteStatus: '',
                     dnsUrls: ['']
                 },
-                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nDNS management: DNS records for this domain are currently managed by us\nNameservers (NS): NS records are also managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your email migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nWebsites: ${v.websiteCount || '[count]'} website(s) hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nNameservers (NS): NS records are managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current email and website DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the migration is complete, the DNS records — including MX and other email-related records — will need to be updated to ensure email services continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\nOnce propagation is complete, you will need to reconfigure your email accounts on existing mail clients (e.g., Outlook, Thunderbird, Apple Mail) with the new server settings.`
             },
             'dns-managed-web-only': {
                 title: 'Website Only Pre-Migration Reply for cPanel to cPanel - DNS Managed by Us',
                 category: 'Pre-Migration / Internal DNS',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -379,12 +385,12 @@
                     websiteStatus: '',
                     dnsUrls: ['']
                 },
-                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your website migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers website migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nWebsites: ${v.websiteCount || '[count]'} website(s) currently hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nDNS management: DNS records for this domain are currently managed by us\nNameservers (NS): NS records are also managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current website and DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the website migration is complete, the DNS records — including A records and other website-related records — will need to be updated to ensure website continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\n\nWe will update you once the migration is completed.`
+                getTemplate: (v) => `Thank you for contacting the Migration Department. We have received your website migration request for the following domain(s):\n\n${formatDomainLines(v.domains)}\n\nThis covers website migration from the ${v.sourcePlan || '[source plan]'} to the ${v.destinationPlan || '[destination plan]'}.\n\nPre-Migration Check Summary\n\nWe have completed the pre-migration checks and found the following:\n\nWebsites: ${v.websiteCount || '[count]'} website(s) currently hosted on source plan (Status: ${v.websiteStatus || '[status]'})\nEmail accounts: ${v.emailCount || '[count]'} email account(s) found under ${primaryDomain(v.domains)}${formatEmailList(v.emailAccountNames)}\nNameservers (NS): NS records are managed by us\n\nYou can check the current DNS record status here:\n${formatUrlList(v.dnsUrls)}\n\nWe have also attached screenshots of the current website and DNS configuration prior to migration, for your reference.\n\nWhat Happens After Migration\n\nSince the NS records are managed by us, once the website migration is complete, the DNS records — including A records and other website-related records — will need to be updated to ensure website continue working correctly.\n\nAs we manage your DNS, we will update these records on your behalf once migration is complete.\n\nPlease note:\n\nDNS propagation typically takes 4–6 hours to complete worldwide.\n\nWe will update you once the migration is completed.`
             },
             'dns-not-managed-email-web': {
                 title: 'Email and Website Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
                 category: 'Pre-Migration / External DNS',
-                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                badgeColor: 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -401,7 +407,7 @@
             'dns-not-managed-exchange': {
                 title: 'Email Exchange Pre-Migration Reply - DNS Not Managed by Us',
                 category: 'Pre-Migration / External DNS',
-                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                badgeColor: 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -418,7 +424,7 @@
             'dns-not-managed-email-only': {
                 title: 'Email Only Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
                 category: 'Pre-Migration / External DNS',
-                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                badgeColor: 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -435,7 +441,7 @@
             'dns-not-managed-titan': {
                 title: 'Titan Email Pre-Migration Reply - DNS Not Managed by Us',
                 category: 'Pre-Migration / External DNS',
-                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                badgeColor: 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -452,7 +458,7 @@
             'dns-not-managed-web-only': {
                 title: 'Website Only Pre-Migration Reply for cPanel to cPanel - DNS Not Managed by Us',
                 category: 'Pre-Migration / External DNS',
-                badgeColor: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-900',
+                badgeColor: 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-900',
                 vars: {
                     domains: [''],
                     sourcePlan: '',
@@ -469,7 +475,7 @@
             'pre-migration-pulse': {
                 title: 'Pre-Migration Pulse Notes Template',
                 category: 'Telemetry / Internal Logs',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     rowId: '',
                     migrationType: '',
@@ -483,7 +489,7 @@
             'post-migration-pulse': {
                 title: 'Post-Migration Pulse Notes Template',
                 category: 'Telemetry / Internal Logs',
-                badgeColor: 'bg-emerald-100 text-emerald-800 dark:bg-blue-950 dark:text-blue-300 border border-emerald-300 dark:border-blue-900',
+                badgeColor: 'bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-900',
                 vars: {
                     destDisk: '',
                     dnsStatus: '',
@@ -493,17 +499,17 @@
                 getTemplate: (v) => `Post migration notes/pulse:\n\nDisk usage on Destination:\n\n${v.destDisk || '[paste du -sch output here]'}\n\nDNS Status: ${v.dnsStatus || '[status]'}\n\nVerified count of email accounts & emails listed in webmail: ${v.emailVerified || '[yes/no]'}\n\nSource archived and old backup deleted: ${v.backupDeleted || '[yes/no]'}`
             },
             'dns-lookup-tool': {
-                title: 'Multi-Domain & Multi-Record DNS Inspector',
+                title: 'DNS Record Checker',
                 category: 'Diagnostic Tools',
-                badgeColor: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-900',
+                badgeColor: 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-900',
                 vars: {
                     bulkDomainsText: ''
                 },
                 getTemplate: (v) => {
-                    if (liveDnsResultCache['dns-lookup-tool']) {
-                        return liveDnsResultCache['dns-lookup-tool'];
+                    if (liveDnsTableResults) {
+                        return liveDnsTableResults.map(r => `Domain: ${r.domain}\nA: ${r.a.join(', ') || 'None'}\nNS: ${r.ns.join(', ') || 'None'}\nMX: ${r.mx.join(', ') || 'None'}\nMX Host A: ${r.mxHostA.join(', ') || 'None'}\n-----------------------------------`).join('\n');
                     }
-                    return `Multi-Domain DNS Inspector\n---------------------------------------------------------------\nEnter domains in the text box on the left (one per line) and click "Run Multi-Record Query" to fetch A, MX, NS, and mail.domain records simultaneously.`;
+                    return `DNS Record Checker results will appear here as a table when you run the query.`;
                 }
             }
         };
@@ -545,11 +551,11 @@
 
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 if(btn.getAttribute('data-target') === key) {
-                    btn.classList.add('bg-emerald-100', 'dark:bg-slate-700', 'text-emerald-800', 'dark:text-blue-300', 'font-semibold');
-                    btn.classList.remove('hover:bg-emerald-50', 'dark:hover:bg-slate-700/50');
+                    btn.classList.add('bg-blue-50', 'dark:bg-slate-700', 'text-blue-700', 'dark:text-blue-300', 'font-semibold');
+                    btn.classList.remove('hover:bg-slate-50', 'dark:hover:bg-slate-700/50');
                 } else {
-                    btn.classList.remove('bg-emerald-100', 'dark:bg-slate-700', 'text-emerald-800', 'dark:text-blue-300', 'font-semibold');
-                    btn.classList.add('hover:bg-emerald-50', 'dark:hover:bg-slate-700/50');
+                    btn.classList.remove('bg-blue-50', 'dark:bg-slate-700', 'text-blue-700', 'dark:text-blue-300', 'font-semibold');
+                    btn.classList.add('hover:bg-slate-50', 'dark:hover:bg-slate-700/50');
                 }
             });
 
@@ -566,8 +572,8 @@
             const itemsHtml = items.map((val, idx) => `
                 <div class="flex items-center space-x-2 mb-2">
                     <input type="text" value="${escapeAttr(val)}" placeholder="${ph}" oninput="setArrayVar('${tKey}','${varKey}', ${idx}, this.value)"
-                        class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-600 dark:focus:border-blue-500 focus:outline-none transition-theme">
-                    <button type="button" onclick="removeArrayItem('${tKey}','${varKey}', ${idx})" class="text-slate-400 hover:text-red-500 px-2 py-2 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900" title="Remove">
+                        class="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none transition-theme">
+                    <button type="button" onclick="removeArrayItem('${tKey}','${varKey}', ${idx})" class="text-slate-400 hover:text-red-500 px-2 py-2 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900" title="Remove">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -580,7 +586,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">${labelName}</label>
                     <div>${itemsHtml}${emptyHtml}</div>
-                    <button type="button" onclick="addArrayItem('${tKey}','${varKey}')" class="text-xs text-emerald-700 dark:text-blue-400 font-semibold hover:underline mt-1 flex items-center">
+                    <button type="button" onclick="addArrayItem('${tKey}','${varKey}')" class="text-xs text-blue-600 dark:text-blue-400 font-semibold hover:underline mt-1 flex items-center">
                         <i class="fa-solid fa-plus mr-1"></i> ${addLabel}
                     </button>
                 </div>
@@ -596,22 +602,90 @@
             document.getElementById('currentCategoryTitle').textContent = tmpl.title;
             const container = document.getElementById('templateContainer');
 
+            // Special handling for DNS Lookup Tool matching clean dark-mode screenshot style
+            if (key === 'dns-lookup-tool') {
+                let tableRowsHtml = '';
+                if (liveDnsTableResults && liveDnsTableResults.length > 0) {
+                    tableRowsHtml = liveDnsTableResults.map((r, i) => `
+                        <tr class="border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors ${i % 2 === 0 ? 'bg-slate-900/40' : 'bg-slate-950/20'}">
+                            <td class="p-4 font-bold text-sky-400 font-mono">${escapeHtml(r.domain)}</td>
+                            <td class="p-4 text-slate-300 font-mono text-[11px]">${r.a.length ? r.a.map(x => `<div class="py-0.5">${escapeHtml(x)}</div>`).join('') : '<span class="inline-block px-2 py-0.5 rounded text-[10px] bg-red-500/10 text-red-400 border border-red-500/20">No A Record</span>'}</td>
+                            <td class="p-4 text-slate-300 font-mono text-[11px]">${r.ns.length ? r.ns.map(x => `<div class="py-0.5">${escapeHtml(x)}</div>`).join('') : '<span class="inline-block px-2 py-0.5 rounded text-[10px] bg-red-500/10 text-red-400 border border-red-500/20">No NS Record</span>'}</td>
+                            <td class="p-4 text-slate-300 font-mono text-[11px]">${r.mx.length ? r.mx.map(x => `<div class="py-0.5">${escapeHtml(x)}</div>`).join('') : '<span class="inline-block px-2 py-0.5 rounded text-[10px] bg-red-500/10 text-red-400 border border-red-500/20">No MX Record</span>'}</td>
+                            <td class="p-4 text-slate-300 font-mono text-[11px]">${r.mxHostA.length ? r.mxHostA.map(x => `<div class="py-0.5">${escapeHtml(x)}</div>`).join('') : '<span class="inline-block px-2 py-0.5 rounded text-[10px] bg-red-500/10 text-red-400 border border-red-500/20">No MX Host A</span>'}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    tableRowsHtml = `
+                        <tr>
+                            <td colspan="5" class="p-10 text-center text-slate-500 italic text-xs">Enter domain names above and click "Lookup DNS Records" to view records.</td>
+                        </tr>
+                    `;
+                }
+
+                container.innerHTML = `
+                    <div class="bg-slate-900 text-slate-100 p-8 rounded-xl shadow-2xl space-y-6 max-w-6xl mx-auto border border-slate-800">
+                        <div class="text-center space-y-2">
+                            <h2 class="text-2xl font-bold text-sky-400 tracking-tight">DNS Record Checker</h2>
+                            <p class="text-xs text-slate-400">Enter one domain per line and retrieve A, NS, MX and MX Host A Records.</p>
+                        </div>
+
+                        <!-- Textarea Input Box -->
+                        <div>
+                            <textarea id="bulkDomainsInput" rows="5" placeholder="test.com"
+                                class="w-full bg-slate-950 border border-slate-700/80 rounded-xl p-4 font-mono text-xs text-slate-200 placeholder:text-slate-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none shadow-inner">${escapeHtml(tmpl.vars.bulkDomainsText || '')}</textarea>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div>
+                            <button type="button" onclick="handleDnsLookupClick()" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-lg shadow-md shadow-blue-500/20 transition-all flex items-center space-x-2">
+                                <span>Lookup DNS Records</span>
+                            </button>
+                        </div>
+
+                        <!-- Status Message -->
+                        <div class="text-xs font-medium text-emerald-400 min-h-[20px]">
+                            ${escapeHtml(dnsProcessStatus)}
+                        </div>
+
+                        <!-- Results Table Container -->
+                        <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 shadow-lg">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold uppercase tracking-wider text-[10px]">
+                                        <th class="p-4">Domain</th>
+                                        <th class="p-4">A Records</th>
+                                        <th class="p-4">NS Records</th>
+                                        <th class="p-4">MX Records</th>
+                                        <th class="p-4">MX Host A Records</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${tableRowsHtml}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
             let formFieldsHtml = '';
             for (const [varKey, varVal] of Object.entries(tmpl.vars)) {
-                let labelName = varKey === 'bulkDomainsText' ? 'DOMAINS LIST (ONE PER LINE)' : varKey.replace(/([A-Z])/g, ' $1').toUpperCase();
+                let labelName = varKey.replace(/([A-Z])/g, ' $1').toUpperCase();
                 let ph = FIELD_PLACEHOLDERS[varKey] || 'Enter details...';
 
                 if (Array.isArray(varVal)) {
                     formFieldsHtml += renderArrayField(key, varKey, varVal, labelName);
                 } else if (MULTILINE_FIELDS.has(varKey)) {
-                    let textPlaceholder = varKey === 'bulkDomainsText' ? 'example.com\nexample.net\nmy-domain.org' : '[root@server ~]# du -sch *\n12M\tbackup\n1.8G\tdomains';
+                    let textPlaceholder = '[root@server ~]# du -sch *\n12M\tbackup\n1.8G\tdomains';
                     formFieldsHtml += `
                         <div>
                             <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">${labelName}</label>
-                            <textarea rows="8" oninput="setScalarVar('${key}','${varKey}', this.value)"
+                            <textarea rows="10" oninput="setScalarVar('${key}','${varKey}', this.value)"
                                 placeholder="${textPlaceholder}"
-                                class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 text-xs font-mono text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-600 dark:focus:border-blue-500 focus:outline-none transition-theme">${escapeHtml(varVal)}</textarea>
-                            ${varKey === 'bulkDomainsText' ? '<p class="text-[11px] text-slate-400 mt-1">Type or paste domain names, one per line.</p>' : '<p class="text-[11px] text-slate-400 mt-1">Paste full du -sch command output here.</p>'}
+                                class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2 text-xs font-mono text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none transition-theme">${escapeHtml(varVal)}</textarea>
+                            <p class="text-[11px] text-slate-400 mt-1">Paste full du -sch command output here.</p>
                         </div>
                     `;
                 } else {
@@ -619,21 +693,10 @@
                         <div>
                             <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">${labelName}</label>
                             <input type="text" value="${escapeAttr(varVal)}" placeholder="${ph}" oninput="setScalarVar('${key}','${varKey}', this.value)"
-                                class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-600 dark:focus:border-blue-500 focus:outline-none transition-theme">
+                                class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-3 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none transition-theme">
                         </div>
                     `;
                 }
-            }
-
-            // Special Action Button for Multi-Domain DNS Tool
-            let extraActionHtml = '';
-            if (key === 'dns-lookup-tool') {
-                extraActionHtml = `
-                    <button type="button" onclick="runBulkDomainDnsLookup(templates['dns-lookup-tool'].vars.bulkDomainsText)" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-md transition-all flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-satellite-dish"></i>
-                        <span>Run Multi-Record Query</span>
-                    </button>
-                `;
             }
 
             const currentText = tmpl.getTemplate(tmpl.vars);
@@ -643,29 +706,28 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
                     <!-- Left Column: Form Controls (Customizer) -->
-                    <div class="lg:col-span-4 bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 p-5 shadow-sm space-y-4 transition-theme">
-                        <div class="flex items-center justify-between pb-3 border-b border-emerald-100 dark:border-slate-700/50">
+                    <div class="lg:col-span-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-5 shadow-sm space-y-4 transition-theme">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-700/50">
                             <h3 class="font-bold text-xs flex items-center text-slate-800 dark:text-white uppercase tracking-wider">
-                                <i class="fa-solid fa-sliders text-emerald-600 dark:text-blue-400 mr-2"></i>
+                                <i class="fa-solid fa-sliders text-blue-600 dark:text-blue-400 mr-2"></i>
                                 Configure Details
                             </h3>
-                            <button type="button" onclick="resetDefaults('${key}')" class="text-xs text-slate-400 hover:text-emerald-700 dark:hover:text-blue-400 underline">Clear All</button>
+                            <button type="button" onclick="resetDefaults('${key}')" class="text-xs text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 underline">Clear All</button>
                         </div>
                         <div class="space-y-4 max-h-[600px] overflow-y-auto pr-1">
                             ${formFieldsHtml}
                         </div>
-                        ${extraActionHtml}
                     </div>
 
                     <!-- Right Column: Live Output & Copy -->
-                    <div class="lg:col-span-8 bg-white dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col transition-theme">
+                    <div class="lg:col-span-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden flex flex-col transition-theme">
                         <!-- Card Header -->
-                        <div class="p-5 border-b border-emerald-200 dark:border-slate-700 flex items-center justify-between bg-emerald-50/40 dark:bg-slate-800/50">
+                        <div class="p-5 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between bg-blue-50/40 dark:bg-slate-800/50">
                             <div>
                                 <span class="inline-block px-2.5 py-1 text-xs font-semibold ${tmpl.badgeColor} mb-1">${tmpl.category}</span>
                                 <h3 class="text-xs font-bold text-slate-800 dark:text-white truncate max-w-sm sm:max-w-md">${tmpl.title}</h3>
                             </div>
-                            <button type="button" onclick="copyActiveTemplate('${key}')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white text-xs font-semibold shadow-md shadow-emerald-500/20 dark:shadow-blue-500/20 transition-all flex items-center space-x-2 flex-shrink-0">
+                            <button type="button" onclick="copyActiveTemplate('${key}')" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-md shadow-blue-500/20 transition-all flex items-center space-x-2 flex-shrink-0">
                                 <i class="fa-regular fa-copy"></i>
                                 <span>Copy Customized</span>
                             </button>
@@ -673,12 +735,12 @@
 
                         <!-- Live Preview Box -->
                         <div class="p-6 flex-1">
-                            <div id="livePreviewBox" class="bg-slate-50 dark:bg-slate-900 p-5 border border-slate-300 dark:border-slate-700 font-mono text-xs leading-relaxed whitespace-pre-wrap select-all overflow-x-auto text-slate-700 dark:text-slate-300 min-h-[500px] max-h-[680px]">${escapeHtml(currentText)}</div>
+                            <div id="livePreviewBox" class="bg-slate-50 dark:bg-slate-900 p-5 border border-slate-200 dark:border-slate-700 font-mono text-xs leading-relaxed whitespace-pre-wrap select-all overflow-x-auto text-slate-700 dark:text-slate-300 min-h-[500px] max-h-[680px]">${escapeHtml(currentText)}</div>
                         </div>
 
                         <!-- Card Footer -->
-                        <div class="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-emerald-200 dark:border-slate-700 flex items-center justify-end text-xs text-slate-500 dark:text-slate-400">
-                            <button type="button" onclick="copyActiveTemplate('${key}')" class="text-emerald-700 dark:text-blue-400 font-semibold hover:underline">
+                        <div class="px-6 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 flex items-center justify-end text-xs text-slate-500 dark:text-slate-400">
+                            <button type="button" onclick="copyActiveTemplate('${key}')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
                                 <i class="fa-regular fa-copy mr-1"></i> Copy to Clipboard
                             </button>
                         </div>
@@ -688,16 +750,20 @@
             `;
         }
 
+        function handleDnsLookupClick() {
+            const txtArea = document.getElementById('bulkDomainsInput');
+            if(txtArea) {
+                templates['dns-lookup-tool'].vars.bulkDomainsText = txtArea.value;
+                runTabularDomainDnsLookup(txtArea.value);
+            }
+        }
+
         function refreshPreview(key) {
             const tmpl = templates[key];
             if(!tmpl) return;
             const box = document.getElementById('livePreviewBox');
             if(box) {
-                if (key === 'dns-lookup-tool' && liveDnsResultCache['dns-lookup-tool']) {
-                    box.textContent = liveDnsResultCache['dns-lookup-tool'];
-                } else {
-                    box.textContent = tmpl.getTemplate(tmpl.vars);
-                }
+                box.textContent = tmpl.getTemplate(tmpl.vars);
             }
         }
 
@@ -723,7 +789,10 @@
 
         function resetDefaults(key) {
             templates[key].vars = JSON.parse(JSON.stringify(templateDefaults[key]));
-            if(key === 'dns-lookup-tool') liveDnsResultCache['dns-lookup-tool'] = null;
+            if(key === 'dns-lookup-tool') {
+                liveDnsTableResults = null;
+                dnsProcessStatus = '';
+            }
             renderTemplateView(key);
         }
 
@@ -731,7 +800,7 @@
             const tmpl = templates[key];
             if(!tmpl) return;
 
-            const finalString = (key === 'dns-lookup-tool' && liveDnsResultCache['dns-lookup-tool']) ? liveDnsResultCache['dns-lookup-tool'] : tmpl.getTemplate(tmpl.vars);
+            const finalString = tmpl.getTemplate(tmpl.vars);
 
             if(navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(finalString).then(() => {
